@@ -1,5 +1,5 @@
 const ui = (() => {
-	var overlays = document.querySelectorAll("overlay");
+	var overlays = document.querySelectorAll(".overlay");
 
 	const performance = (() => {
 		var rank = document.getElementById("rank");
