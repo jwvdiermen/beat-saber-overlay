@@ -1,5 +1,5 @@
 const ui = (() => {
-	var main = document.getElementById("overlay");
+	var overlays = document.querySelectorAll("overlay");
 
 	const performance = (() => {
 		var rank = document.getElementById("rank");
@@ -71,7 +71,7 @@ const ui = (() => {
 		return {
 			start(time, length) {
 				active = true;
-				
+
 				began = time;
 				duration = length;
 
@@ -102,7 +102,7 @@ const ui = (() => {
 		var difficulty = document.getElementById("difficulty");
 		var bpm = document.getElementById("bpm");
 		var njs = document.getElementById("njs");
-		
+
 		function format(number) {
 			if (Number.isNaN(number)) {
 				return "NaN";
@@ -124,13 +124,13 @@ const ui = (() => {
 
 			title.innerText = data.songName;
 			subtitle.innerText = data.songSubName;
-			
+
 			if (data.levelAuthorName) {
 				artist.innerText = `${data.songAuthorName} [${data.levelAuthorName}]`;
 			} else {
 				artist.innerText = data.songAuthorName;
 			}
-			
+
 
 			difficulty.innerText = data.difficulty;
 			bpm.innerText = `${format(data.songBPM)} BPM`;
@@ -147,11 +147,11 @@ const ui = (() => {
 
 	return {
 		hide() {
-			main.classList.add("hidden");
+			overlays.forEach(overlay => overlay.classList.add("hidden"));
 		},
 
 		show() {
-			main.classList.remove("hidden");
+			overlays.forEach(overlay => overlay.classList.remove("hidden"));
 		},
 
 		performance,
